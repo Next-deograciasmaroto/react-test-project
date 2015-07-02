@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+
+    //Componente CAJA (Contenedor de componentes)
+      var CommentBox = React.createClass({
+        displayName:        'CommentBox',
+        render:  function() {
+          //inserción de elementos de React a otro elemento "contenedor"
+          return (
+            <div className="commentBox">
+              <h1>Comments </h1>
+              <CommentList />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+
+    //Componente LISTA
+      var CommentList = React.createClass({
+        displayName:        'CommentList',
+        render:  function() {
+          return (
+            React.createElement('div', {className:  'CommentList'},
+              'esto es un CommentList!'
+            )
+          );
+        }
+      });
+
+    //Componente FORM
+      var CommentForm = React.createClass({
+        displayName:        'CommentForm',
+        render:  function() {
+          return (
+            React.createElement('div', {className:  'CommentForm'},
+              'esto es un formulario!'
+            )
+          );
+        }
+      })
+
+      React.render(
+        React.createElement(CommentBox, null),
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
